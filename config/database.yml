@@ -1,0 +1,22 @@
+development:
+ adapter: postgresql
+ database: fb_connection_development
+ pool: 30
+ host: <%= ENV['PG_HOST'] %>
+ username: <%= ENV['PG_USERNAME'] %>
+ password: <%= ENV['PG_PASSWORD'] %>
+
+test:
+ adapter: postgresql
+ database: fb_connection_test
+ host: <%= ENV['PG_HOST'] %>
+ username: <%= ENV['PG_USERNAME'] %>
+ password: <%= ENV['PG_PASSWORD'] %>
+
+production:
+ adapter: postgresql
+ database: <%= ENV['PG_DATABASE'] %>
+ pool: 30
+ host: <%= ENV['PG_HOST'] %>
+ username: <%= ENV['SMMS_DATABASE_USERNAME'] %>
+ password: <%= ENV['SMMS_DATABASE_PASSWORD'] %>
