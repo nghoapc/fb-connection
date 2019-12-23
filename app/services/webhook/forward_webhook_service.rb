@@ -8,7 +8,7 @@ module Webhook
     def initialize; end
 
     def se_web_webhook_url
-      ENV['SE_WEB_WEBHOOK_URL'] || 'https://opio.me/webhooks/facebook/bot'
+      ENV['SE_WEB_WEBHOOK_URL'] || 'https://115.73.211.189:7796/webhooks/facebook/bot'
     end
 
     def send_to_web(params = {}, x_hub)
