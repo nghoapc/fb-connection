@@ -17,7 +17,6 @@ module Users
 
         new_access_token = new_access_info['access_token']
         # new_access_expires_at = access_expires_at(new_access_info)
-        console
         # return create_user(auth) unless current_user
         current_user = create_user(auth)
         FacebookConnectionService.new.process(current_user, new_access_token, auth.credentials.expires_at)
