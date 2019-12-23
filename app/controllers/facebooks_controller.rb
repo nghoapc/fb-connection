@@ -5,8 +5,8 @@ class FacebooksController < ApplicationController
 
   def connect_facebook
     client_id = ENV['FB_APP_ID']
-    # redirect_uri = "#{ENV['ROOT_URL']}/users/auth/facebook/callback"
-    redirect_uri = 'https://bd84028c.ngrok.io/facebook_callback'
+    redirect_uri = "#{ENV['ROOT_URL']}/facebook_callback"
+    # redirect_uri = 'https://bd84028c.ngrok.io/facebook_callback'
     url = 'https://www.facebook.com/v2.10/dialog/oauth?client_id=' + client_id + '&redirect_uri=' + redirect_uri + '&response_type=code&scope=email'
     redirect_to url
   end
@@ -20,22 +20,25 @@ class FacebooksController < ApplicationController
     )
 
     new_access_token = new_access_info['access_token']
-    # new_access_expires_at = access_expires_at(new_access_info)
-    # return create_user(auth) unless current_user
     data = GetPagesService.new.process(new_access_token, auth.credentials.expires_at)
-    session[:list_pages] = data
+    session[:list_pages] = data['data']
     redirect_to pages_facebooks_path
   end
 
   def pages
-  	@pages = session[:list_pages]['data']
+  	@pages = session[:list_pages]
   end
 
   def subcribe_app
-  	@page = FacebookPage.find(params[:facebook_id])
-  	FacebookConnectionService.new.subscribed_app(@page)
-  	CallApiService.new.send_create_page(@page)
-  	@page.update(enable: true)
+  	page_token = params[:access_token]
+
+  	GetPagesService.new.subscribed_app(params[:access_token], params[:id])
+  	CallApiService.new.send_create_page(params[:access_token], params[:id], params[:name], params[:page_token])
+    new_data = []
+    session[:list_pages].each do |i|
+      new_data << i if i.dig('access_token') != params[:access_token]
+    end
+    session[:list_pages] = new_data
   	redirect_to pages_facebooks_path
   end
 end

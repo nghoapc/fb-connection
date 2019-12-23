@@ -56,9 +56,7 @@ class GetPagesService
     return
   end
 
-  def subscribed_app(fb_page)
-    page_token = fb_page.page_token
-    page_id = fb_page.page_id
+  def subscribed_app(page_token, page_id)
     request_body = 'access_token=' + page_token.to_s
     fb_url_api = 'https://graph.facebook.com/v2.11/' + page_id.to_s + '/subscribed_apps'
     url = URI(fb_url_api)

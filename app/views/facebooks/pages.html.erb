@@ -18,11 +18,10 @@
               <td><%= p.dig('id') %></td>
               <td><%= p.dig('name') %></td>
               <td><%= p.dig('page_token') %></td>
-              <td><%#= p.page_id %></td>
-              <td><%#= p.name %></td>
-              <td><%#= link_to p.page_url, p.page_url %></td>
               <td>
-                <%#= link_to facebook_subcribe_app_path(p), method: :post, class: "btn btn-success button-font" do %>
+                <%= link_to subcribe_app_facebooks_path(p.merge(s_index: index)), method: :post, class: "btn btn-success button-font" do %>
+                 Connect
+                <% end %>
               </td>
             </tr>
           <% end %>

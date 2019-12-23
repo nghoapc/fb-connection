@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   resources :facebooks do
   	collection do
       get :pages
+      post :subcribe_app
     end
-    post :subcribe_app
   end
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks' ,

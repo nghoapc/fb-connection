@@ -5,18 +5,17 @@ class CallApiService
   def initialize; end
 
   def web_api_url
-    ENV['WEB_API_CREATE_FB_PAGE_URL'] || 'http://localhost:3000//api/v1/facebook_pages'
+    ENV['WEB_API_CREATE_FB_PAGE_URL'] || 'http://localhost:3000/api/v1/facebook_pages'
   end
 
-  def send_create_page(page)
+  def send_create_page(access_token, page_id, page_name, page_url)
   	params = {
-  		page_id: page.page_id,
-			avatar_url: page.avatar_url,
-			name: page.name,
-			page_token: page.page_token,
-			page_url: page.page_url
+  		page_id: page_id,
+			avatar_url: '',
+			name: page_name,
+			page_token: page_name,
+			page_url: 'https://facebook.com/' + page_url
   	}
-    p 'Start forward data...'
     begin
       uri = URI(web_api_url)
       request = Net::HTTP::Post.new uri, "Content-Type" => "application/json"
