@@ -5,7 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
 gem 'pg'
@@ -37,6 +36,17 @@ gem 'figaro'
 gem 'koala', '~> 2.2'
 # gem 'bootstrap'
 # gem 'jquery-rails'
+
+#api extension
+gem 'grape', '1.0.2'
+gem 'grape-swagger', '0.28.0'
+gem 'grape-swagger-rails', '0.3.0'
+gem 'grape-swagger-entity', '0.2.3'
+gem 'grape-entity', '0.7.1'
+gem 'grape-swagger-representable', '0.1.5'
+# gem 'rest-client'
+gem 'faraday'
+gem 'faraday_middleware'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
