@@ -38,7 +38,7 @@ gem 'koala', '~> 2.2'
 # gem 'jquery-rails'
 
 #api extension
-gem 'grape', '1.0.2'
+gem 'grape', '1.1.0'
 gem 'grape-swagger', '0.28.0'
 gem 'grape-swagger-rails', '0.3.0'
 gem 'grape-swagger-entity', '0.2.3'
