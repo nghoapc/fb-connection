@@ -90,7 +90,7 @@ GEM
       thor (~> 0.14)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    grape (1.0.2)
+    grape (1.1.0)
       activesupport
       builder
       mustermann-grape (~> 1.0.0)
@@ -136,7 +136,7 @@ GEM
     multi_json (1.14.1)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
-    mustermann (1.0.1)
+    mustermann (1.0.3)
     mustermann-grape (1.0.0)
       mustermann (~> 1.0.0)
     nio4r (2.5.2)
@@ -267,7 +267,7 @@ DEPENDENCIES
   faraday
   faraday_middleware
   figaro
-  grape (= 1.0.2)
+  grape (= 1.1.0)
   grape-entity (= 0.7.1)
   grape-swagger (= 0.28.0)
   grape-swagger-entity (= 0.2.3)
